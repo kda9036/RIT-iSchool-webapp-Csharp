@@ -1,0 +1,271 @@
+﻿@model iSchoolWebApp.Models.PeopleRootModel
+@{
+    ViewData["Title"] = "People";
+}
+
+<h1>@Model.title</h1>
+
+<hr />
+
+<div>@Model.subTitle</div>
+
+@*Tabs - https://jqueryui.com/tabs/*@
+<div id="KellyTab">
+    <ul>
+        @*2 tabs - Faculty and Staff*@
+        <li><a href="#pf">Faculty</a></li>
+        <li><a href="#ps">Staff</a></li>
+    </ul>
+    <div id="pf">
+        @foreach (var person in Model.faculty)
+        {
+            <div class="person">
+                <img src="@person.imagePath" alt="Image of person"/>
+                <div class="caption">
+                    <h3 style="font-size:small; font-weight:bold">
+                        @person.name
+                    </h3>
+                    <h3 style="font-size:small">
+                        Username: @person.username
+                    </h3>
+                    <h3 style="font-size:small">
+                        @person.title
+                    </h3>
+                    <h3 style="font-size:small">
+                        @person.email
+                    </h3>
+
+                    @*Dialog opens with button click with animation! - https://jqueryui.com/dialog/#animated*@
+                    <div id=@person.username-dialog title="About me!" style="display: none">
+                        <h3 style="font-size:small; font-weight:bold">
+                            @person.name
+                        </h3>
+                        <h3 style="font-size:small">
+                            Office: @person.office
+                        </h3>
+                        <h3 style="font-size:small">
+                            @person.phone
+                        </h3>
+                        @*if exists, show*@
+                        @if (person.facebook != "" && person.facebook != null)
+                        {
+                            <h3 style="font-size:small">
+                                FB: @person.facebook
+                            </h3>
+                        }
+                        @if (person.twitter != "" && person.twitter != null)
+                        {
+                            <h3 style="font-size:small">
+                                Twitter: @person.twitter
+                            </h3>
+                        }
+                        <h3 style="font-size:small">
+                            Interest Area(s): @person.interestArea
+                        </h3>
+                        @if (person.tagline != "" && person.tagline != null)
+                        {
+                            <h3 style="font-size:small">
+                                @person.tagline
+                            </h3>
+                        }
+                        @if (person.website != "" && person.website != null)
+                        {
+                            <h3 style="font-size:small">
+                                <a href="@person.website" target="_blank">Site</a>
+                            </h3>
+                        }
+                    </div>
+                    <button class="opener" id=@person.username onClick="dialog_btn_click(this.id)" style="font-size: small">Click for more!</button>
+                </div>              
+            </div>
+        }
+    </div>
+
+    <div id="ps">
+        @foreach (var person in Model.staff)
+        {
+            <div class="person">
+                <img src="@person.imagePath" alt="" />
+                <div class="caption">
+                    <h3 style="font-size:small; font-weight:bold">
+                        @person.name
+                    </h3>
+                    <h3 style="font-size:small">
+                        @person.username
+                    </h3>
+                    <h3 style="font-size:small">
+                        @person.title
+                    </h3>
+                    <h3 style="font-size:small">
+                        @person.email
+                    </h3>
+                    @*Dialog opens with button click with animation!*@
+                    <div id=@person.username-dialog title="About me!" style="display: none">
+                        <h3 style="font-size:small; font-weight:bold">
+                            @person.name
+                        </h3>
+                        @*if exists, show*@
+                        @if (person.office != "" && person.office != null)
+                        {
+                            <h3 style="font-size:small">
+                                Office: @person.office
+                            </h3>
+                        }
+                        <h3 style="font-size:small">
+                            @person.phone
+                        </h3>
+                        @*if exists, show*@
+                        @if (person.facebook != "" && person.facebook != null)
+                        {
+                            <h3 style="font-size:small">
+                                FB: @person.facebook
+                            </h3>
+                        }
+                        @if (person.twitter != "" && person.twitter != null)
+                        {
+                            <h3 style="font-size:small">
+                                Twitter: @person.twitter
+                            </h3>
+                        }
+                        @if (person.interestArea != "" && person.interestArea != null)
+                        {
+                            <h3 style="font-size:small">
+                                Interest Area(s): @person.interestArea
+                            </h3>
+                        }
+                        @if (person.tagline != "" && person.tagline != null)
+                        {
+                            <h3 style="font-size:small">
+                                @person.tagline
+                            </h3>
+                        }
+                        @if (person.website != "" && person.website != null)
+                        {
+                            <h3 style="font-size:small">
+                                <a href="@person.website" target="_blank">Site</a>
+                            </h3>
+                        }
+                    </div>
+                    <button class="opener" id=@person.username onClick="dialog_btn_click(this.id)" style="font-size: small">Click for more!</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@*Alternate styling option - accordion instead of tabs*@
+@*Accordion*@
+@*<div id="KellyAcc">
+    <h3>Faculty</h3>
+    <div>
+        @foreach (var person in Model.faculty)
+        {
+            <div class="person">
+                <img src="@person.imagePath" alt="" />
+                <div class="caption">
+                    <h3 style="font-size:small">
+                        @person.name
+                    </h3>
+                    <h3 style="font-size:small">
+                        Username: @person.username
+                    </h3>
+                    <h3 style="font-size:small">
+                        @person.title
+                    </h3>
+                    <h3 style="font-size:small">
+                        Office: @person.office
+                    </h3>
+                    <h3 style="font-size:small">
+                        @person.phone
+                    </h3>
+                    <h3 style="font-size:small">
+                        @person.email
+                    </h3>
+                    @if (person.facebook != "" && person.facebook != null)
+                    {
+                        <h3 style="font-size:small">
+                            FB: @person.facebook
+                        </h3>
+                    }
+                    @if (person.twitter != "" && person.twitter != null)
+                    {
+                        <h3 style="font-size:small">
+                            Twitter: @person.twitter
+                        </h3>
+                    }
+                    <h3 style="font-size:small">
+                        Interest Area(s): @person.interestArea
+                    </h3>
+                    @if (person.tagline != "" && person.tagline != null)
+                    {
+                        <h3 style="font-size:small">
+                            @person.tagline
+                        </h3>
+                    }
+                    @if (person.website != "" && person.website != null)
+                    {
+                        <h3 style="font-size:small">
+                            <a href="@person.website" target="_blank">Site</a>
+                        </h3>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    <h3>Staff</h3>
+    <div>
+        @foreach (var person in Model.staff)
+        {
+            <div class="person">
+                <img src="@person.imagePath" alt="" />
+                <div class="caption">
+                    <h3 style="font-size:small">
+                        @person.name
+                    </h3>
+                    <h3 style="font-size:small">
+                        @person.username
+                    </h3>
+                    <h3 style="font-size:small">
+                        @person.title
+                    </h3>
+                    <h3 style="font-size:small">
+                        @person.office
+                    </h3>
+                    <h3 style="font-size:small">
+                        @person.phone
+                    </h3>
+                    <h3 style="font-size:small">
+                        @person.email
+                    </h3>
+                    @if (person.facebook != "" && person.facebook != null)
+                    {
+                        <h3 style="font-size:small">
+                            @person.facebook
+                        </h3>
+                    }
+                    @if (person.twitter != "" && person.facebook != null)
+                    {
+                        <h3 style="font-size:small">
+                            @person.twitter
+                        </h3>
+                    }
+                    <h3 style="font-size:small">
+                        @person.interestArea
+                    </h3>
+                    @if (person.website != "" && person.website != null)
+                    {
+                        <h3 style="font-size:small">
+                            <a href="@person.website" target="_blank">Site</a>
+                        </h3>
+                    }
+                    @if (person.tagline != "")
+                    {
+                        <h3 style="font-size:small">
+                            @person.tagline
+                        </h3>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>*@

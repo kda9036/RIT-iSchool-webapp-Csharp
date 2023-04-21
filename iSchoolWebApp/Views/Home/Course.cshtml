@@ -1,0 +1,19 @@
+﻿@model iSchoolWebApp.Models.CourseRootModel
+@{
+    ViewData["Title"] = "Course";
+}
+
+<h1>Course Information</h1>
+@*handle formatting of & in title*@
+@if (Model.title.Contains("&amp;"))
+{
+    string courseTitle = Model.title.Replace("&amp;", "&");
+    <h3>@courseTitle</h3>
+} else
+{
+    <h3>@Model.title</h3>
+}
+<h4>@Model.courseID</h4>
+<p class="info">@Model.description</p>
+@*link back to Minors page*@
+<a asp-controller="Home" asp-action="Minors">Return to Minors</a>

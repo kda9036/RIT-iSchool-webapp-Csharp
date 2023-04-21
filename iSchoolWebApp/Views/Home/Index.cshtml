@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>Welcome to the iSchool Website!</h1>
+    <img src="~/Media/ritTigerLogo.png" alt="RIT tiger logo" width="20%"/>
+</div>
+
+<div>
+    <ul class="welcome-nav">
+        <li class="welcome-nav-item">
+            <a asp-controller="Home" asp-action="About">About</a>
+        </li>
+        <li class="welcome-nav-item">
+            <a asp-controller="Home" asp-action="Degrees">Degrees</a>
+        </li>
+        <li class="welcome-nav-item">
+            <a asp-controller="Home" asp-action="Minors">Minors</a>
+        </li>
+        <li class="welcome-nav-item">
+            <a asp-controller="Home" asp-action="Employment">Employment</a>
+        </li>
+        <li class="welcome-nav-item">
+            <a asp-controller="Home" asp-action="People">People</a>
+        </li>
+    </ul>
+</div>

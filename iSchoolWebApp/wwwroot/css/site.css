@@ -1,0 +1,163 @@
+/* Kelly add */
+* {
+    text-align: center;
+}
+
+body {
+    background: url(../Media/coding_unsplash_1.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/*Welcome Page*/
+.welcome-nav {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.welcome-nav-item {
+    border: solid 5px #F76902;
+    border-radius: 10px;
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    background: #7C878E;
+}
+
+.welcome-nav-item a {
+     color: black;
+     font-weight: bold;
+     text-decoration: none;
+}
+
+.welcome-nav-item a:hover {
+    color: #F6BE00;
+}
+
+.welcome-nav-item a:active {
+    font-size: 0.8em;
+}
+
+/*About, Minors, Employment, & Course Pages*/
+.info {
+    padding: 2%;
+    margin: 2.5% 4.5%;
+    border: solid 5px #F76902;
+    text-align: center;
+    background: #D0D3D4;
+}
+
+/*Flip Cards*/
+#statContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 300px;
+    height: 150px;
+    background: #D0D3D4;
+    margin: 10px;
+}
+.front, .back, .other-front, .other-back {
+    border: 2px gray solid;
+    padding: 10px;
+    border: solid 5px #F76902;
+    text-align: center;
+    background: #D0D3D4;
+}
+
+.front, .other-front {
+    background-color: #D0D3D4;
+}
+
+.back, .other-back {
+    background-color: #A2AAAD;
+}
+
+/*Tables*/
+th {
+    background-color: #F76902;
+    color: white;
+}
+
+.empTables tr:nth-child(even) {
+    background-color: #D0D3D4;
+}
+
+.empTables tr:nth-child(odd) {
+    background-color: white;
+}
+
+/*Slideshow*/
+#content img {
+    display: none;
+}
+
+.slideshow {
+    width: 85%;
+    border: solid 5px #F76902;
+}
+
+/*Degrees*/
+#KellyAcc2, #KellyAcc3 {
+    margin: auto;
+    width: 50%;
+    padding-bottom: 15px;
+}
+
+/*People*/
+.person {
+    min-height: 260px;
+    width: 200px;
+    display: inline-table;
+    margin: 10px;
+}
+
+.person > img {
+    max-height: 200px;
+}
+
+/*Other*/
+h1 {
+    color: #F76902;
+    text-shadow: 2px 2px black;
+    margin-bottom: 20px;
+}
+
+h5 {
+    margin-top: 20px;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+a:active {
+    font-size: 0.8em;
+}
+
+/* end Kelly add */
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}

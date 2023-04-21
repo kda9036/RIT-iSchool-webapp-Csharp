@@ -1,0 +1,61 @@
+﻿@model iSchoolWebApp.Models.MinorsRootModel
+@{
+    ViewData["Title"] = "Minors";
+}
+
+<h1>Minors</h1>
+
+<hr />
+
+<div id="parent">
+@*Modally nested modal plugin*@
+@foreach (var minor in Model.UgMinors)
+{
+    @*encase each minor in a styled box/border with .info class*@
+    <div class="info">
+        <h3>@minor.title</h3>
+
+        @*open info about minor*@
+        <a href="#@minor.name-info" target="_modal" class="btn btn-light modalOpen">Learn more about @minor.name!</a> @*added bootstrap button style*@
+
+        <div id=@minor.name-info style="display:none" class="modally-init" modally-max-width="1000">
+            <h1 class="modal-title">@minor.name</h1>
+            <p>@minor.description</p>
+            @*display note if exists*@
+            @if (minor.note != "" && minor.note != null)
+            {
+                <p style="font-size:small">
+                    * Note: @minor.note
+                </p>
+            }
+            <div class="button-wrap">
+                    @*open list of courses*@
+                    <a target="_modal:close" class="button small btn btn-secondary" href="">Close</a> @*added bootstrap button style*@
+                    @*close button*@
+                    <a id=@minor.name href ="#@minor.name-courses" target="_modal" class="button gradient small, btn btn-secondary" onClick="courses_btn_click(this.id)">View Courses</a>
+            </div>
+        </div>
+        @*second popup for courses*@
+        <div class="modalOpen" id=@minor.name-courses style="display:none">
+            <h1 class="modal-title">Courses</h1>
+            @*list all courses for each minor*@
+            <div>
+                @foreach (var c in @minor.courses)
+                {
+                    <div class="courseSelector">
+                        @*navigate to page to display course info*@
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Course" asp-route-course="@c">
+                            @c
+                        </a>
+                    </div>
+                }
+            </div>
+            <div class="button-wrap">
+                <a class="button small modally-close">Close</a>
+            </div>
+        </div>
+    </div>
+}
+</div>
+
+

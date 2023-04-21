@@ -1,0 +1,22 @@
+﻿@model iSchoolWebApp.Models.AboutRootModel;
+
+@{
+    ViewData["Title"] = "About";
+}
+
+<h1>@Model.title</h1>
+
+<hr />
+
+<div class="info">
+    <p>@Model.description</p>
+    <p>@Model.quote</p>
+    <p>--- @Model.quoteAuthor ---</p>
+</div>
+@*Minimal any content slideshow plugin - Recursive Content Rotator (https://www.jqueryscript.net/slideshow/recursive-content-rotator.html)*@
+<div id="content">
+    <img class="slideshow" src="~/Media/golisano_building.jpg" alt="Golisano Building"/>
+    <img class="slideshow" src="~/Media/Sys_Admin_Lab.jpg" alt="System Admin Lab"/>
+    <img class="slideshow" src="~/Media/cybersecurity.jpg" alt="Cyber Security Lab"/>
+</div>
+

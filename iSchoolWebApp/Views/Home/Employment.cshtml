@@ -1,0 +1,114 @@
+﻿@model iSchoolWebApp.Models.EmploymentRootModel
+@{
+    ViewData["Title"] = "Employment";
+}
+
+<h1>@Model.introduction.title</h1>
+
+<hr />
+
+@*Degree Stats*@
+<h3>@Model.degreeStatistics.title</h3>
+
+<div id="statContainer">
+    @foreach (var stat in Model.degreeStatistics.statistics)
+    {
+        @*Flip Card - http://nnattawat.github.io/flip/*@
+        <div class="card">
+            <div class="front">
+                <h4>@stat.value</h4>
+                <p>< Learn about this stat ></></p>
+                <p style="font-size: small">(Click to Flip)</p>
+            </div>
+            <div class="back">
+                @stat.description
+            </div>
+        </div>
+    }
+</div>
+
+<div>
+    <h5>Some of Our Employers</h5>
+    <div class="info">
+
+        <ul style=" list-style-type: none">
+            @foreach (var emp in Model.employers.employerNames)
+        {
+            <li>@emp</li>
+        }
+        </ul>
+    </div>
+    <h5>Some Titles Our Students Achieve:</h5>
+    <div class="info">
+        <ul style=" list-style-type: none">
+            @foreach (var car in Model.careers.careerNames)
+            {
+                <li>@car</li>
+            }
+        </ul>
+    </div>
+</div>
+
+
+@*Co-op*@
+<h3>@Model.introduction.content[1].title</h3>
+<div class="info">
+    <p>@Model.introduction.content[1].description</p>
+</div>
+
+@*Table (https://datatables.net/)*@
+<h4>@Model.coopTable.title</h4>
+<table id="tableCoop" class="display, empTables">
+    <thead>
+        <tr>
+            <th>Employer</th>
+            <th>Degree</th>
+            <th>City</th>
+            <th>Term</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model.coopTable.coopInformation)
+        {
+            <tr>
+                <td>@c.employer</td>
+                <td>@c.degree</td>
+                <td>@c.city</td>
+                <td>@c.term</td>
+            </tr>
+        }
+      </tbody>
+</table>
+
+@*Employment*@
+<h3>@Model.introduction.content[0].title</h3>
+<div class="info">
+    <p>@Model.introduction.content[0].description</p>
+</div>
+
+@*Table (https://datatables.net/)*@
+<h4>@Model.employmentTable.title</h4>
+<table id="tableEmp" class="display, empTables">
+    <thead>
+        <tr>
+            <th>Employer</th>
+            <th>Degree</th>
+            <th>City</th>
+            <th>Title</th>
+            <th>Start Date</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    @foreach (var e in Model.employmentTable.professionalEmploymentInformation)
+    {
+        <tr>
+            <td>@e.employer</td>
+            <td>@e.degree</td>
+            <td>@e.city</td>
+            <td>@e.title</td>
+            <td>@e.startDate</td>
+        </tr>
+    }
+    </tbody>
+</table>

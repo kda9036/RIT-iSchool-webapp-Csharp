@@ -1,0 +1,67 @@
+﻿@model iSchoolWebApp.Models.DegreesRootModel
+@{
+    ViewData["Title"] = "Degrees";
+}
+
+<h1>Degrees</h1>
+
+<hr />
+
+@*Accordion for degrees - https://jqueryui.com/accordion/*@
+<div id="KellyAcc">
+    <h3>Undergraduate</h3>
+    <div>
+        @foreach (var degree in Model.undergraduate)
+        {
+            <div>
+                <h3>@degree.title</h3>
+                <h4>(@degree.degreeName)</h4>
+                <p>@degree.description</p>
+                @*Accordion for listing concentrations*@
+                <div id="KellyAcc2">
+                    <h3>Concentrations for @degree.degreeName</h3>
+                    <div>                
+                        @foreach (var c in @degree.concentrations)
+                        {
+                            <p>@c</p>
+                        }
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+
+    <h3>Graduate</h3>
+    <div>
+        @foreach (var degree in Model.graduate)
+        {
+            <div>
+                <h3>@degree.title</h3>
+                <h4>(@degree.degreeName)</h4>
+                <p>@degree.description</p>
+                @*Accordion for listing concentrations IF they exist - not all grad degrees have concentrations, one has "availableCertificates"*@
+                @if (@degree.concentrations != null)
+                {
+                    <div id="KellyAcc3">
+                        <h3>Concentrations for @degree.degreeName</h3>
+                        <div>                
+                            @foreach (var c in @degree.concentrations)
+                            {
+                                <p>@c</p>
+                            }
+                        </div>
+                    </div>
+                }
+                @*list available certificates IF they exist*@
+                @if (@degree.availableCertificates != null)
+                {
+                    @foreach (var ac in @degree.availableCertificates)
+                    {
+                        <p>@ac</p>
+                    }
+                }
+            </div>
+        }
+    </div>
+</div>
