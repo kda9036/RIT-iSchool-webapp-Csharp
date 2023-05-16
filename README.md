@@ -8,7 +8,7 @@ Course: Client Programming
 
 Repeat what you did for Project 2, but creating a C# front-end that accesses the same RESTful services as in Project 2 (http://www.ist.rit.edu/api/).
 
-See repo: [consume-web-service-react](https://github.com/kda9036/consume-web-service-react) for original project version.
+See repo: [consume-web-service-react](https://github.com/kda9036/RIT-iSchool-webapp-react) for original project version.
 
 Use of jQuery plugins for UI.
 
