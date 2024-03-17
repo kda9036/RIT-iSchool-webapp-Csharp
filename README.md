@@ -8,7 +8,7 @@ Course: Client Programming
 
 # Project Description
 
-Repeat what you did for Project 2, but creating a C# front-end that accesses the same RESTful services as in Project 2 (http://www.ist.rit.edu/api/).
+Repeat what you did for Project 2, but creating a C# front-end that accesses the same RESTful services as in Project 2 (https://ischool.gccis.rit.edu/api/), formerly (http://www.ist.rit.edu/api/).
 
 See repo: [consume-web-service-react](https://github.com/kda9036/RIT-iSchool-webapp-react) for original project version.
 
