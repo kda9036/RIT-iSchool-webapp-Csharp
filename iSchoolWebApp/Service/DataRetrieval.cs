@@ -8,7 +8,8 @@ namespace iSchoolWebApp.Service
         { 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://www.ist.rit.edu/api/");
+                client.BaseAddress = new Uri("https://ischool.gccis.rit.edu/api/"); 
+                // client.BaseAddress = new Uri("http://www.ist.rit.edu/api/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 try
